@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; }
+  .page {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    font-family: Georgia, serif;
+  }
+
+  /* ── SLIDE 1 ── */
+  .s1 { background: linear-gradient(160deg, #F5EDE4 0%, #EDE0D4 100%); }
+  .s1 .accent1 { position:absolute; width:520px; height:520px; border-radius:50%; background:#E8452A; opacity:0.05; top:-80px; left:-100px; }
+  .s1 .accent2 { position:absolute; width:600px; height:600px; border-radius:50%; background:#E8452A; opacity:0.06; bottom:-100px; right:-120px; }
+  .s1 .wordmark { position:absolute; top:170px; width:100%; text-align:center; font-size:58px; font-weight:700; color:#2f4a33; letter-spacing:3px; }
+  .s1 .divider { position:absolute; top:240px; left:300px; right:300px; height:2px; background:#2f4a33; opacity:0.2; }
+  .s1 .line1 { position:absolute; top:640px; width:100%; text-align:center; font-size:112px; font-weight:700; color:#2D2D2D; }
+  .s1 .line2 { position:absolute; top:770px; width:100%; text-align:center; font-size:112px; font-weight:700; color:#2D2D2D; }
+  .s1 .line3 { position:absolute; top:940px; width:100%; text-align:center; font-size:100px; font-weight:700; color:#E8452A; }
+  .s1 .line4 { position:absolute; top:1060px; width:100%; text-align:center; font-size:100px; font-weight:700; color:#E8452A; }
+  .s1 .line5 { position:absolute; top:1185px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#E8452A; }
+  .s1 .divider2 { position:absolute; top:1310px; left:360px; right:360px; height:2.5px; background:#C9A882; opacity:0.7; }
+  .s1 .sub { position:absolute; top:1390px; width:100%; text-align:center; font-size:78px; font-style:italic; color:#5F5E5A; }
+  .s1 .nest { position:absolute; bottom:160px; width:100%; text-align:center; font-size:90px; }
+  .s1 .slide-num { position:absolute; bottom:60px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:32px; color:#888780; letter-spacing:5px; }
+
+  /* ── SLIDE 2 ── */
+  .s2 { background: linear-gradient(180deg, #F5F3F0 0%, #EEE9E2 100%); }
+  .s2 .bubble { position:absolute; border-radius:42px; }
+  .s2 .b1 { width:230px;height:230px; background:#E6F1FB; opacity:0.7; top:300px; left:75px; }
+  .s2 .b2 { width:210px;height:210px; background:#EAF3DE; opacity:0.7; top:265px; right:70px; }
+  .s2 .b3 { width:200px;height:200px; background:#FAECE7; opacity:0.7; top:565px; left:55px; }
+  .s2 .b4 { width:220px;height:220px; background:#FAEEDA; opacity:0.7; top:530px; right:55px; }
+  .s2 .b5 { width:210px;height:210px; background:#EEEDFE; opacity:0.7; top:255px; left:435px; }
+  .s2 .e1 { position:absolute; top:378px; left:158px; font-size:82px; }
+  .s2 .e2 { position:absolute; top:345px; right:130px; font-size:74px; }
+  .s2 .e3 { position:absolute; top:640px; left:120px; font-size:74px; }
+  .s2 .e4 { position:absolute; top:615px; right:115px; font-size:74px; }
+  .s2 .e5 { position:absolute; top:335px; left:487px; font-size:74px; }
+  .s2 .wordmark { position:absolute; top:145px; width:100%; text-align:center; font-size:46px; font-weight:700; color:#E8452A; letter-spacing:2px; }
+  .s2 .t1 { position:absolute; top:850px; left:460px; transform:translateX(-50%); font-size:104px; font-weight:700; color:#2D2D2D; white-space:nowrap; }
+  .s2 .t2 { position:absolute; top:960px; left:540px; transform:translateX(-50%); font-size:104px; font-weight:700; color:#888780; white-space:nowrap; }
+  .s2 .t3 { position:absolute; top:1100px; left:460px; transform:translateX(-50%); font-size:104px; font-weight:700; color:#2D2D2D; white-space:nowrap; }
+  .s2 .t4 { position:absolute; top:1210px; left:570px; transform:translateX(-50%); font-size:104px; font-weight:700; color:#888780; white-space:nowrap; }
+  .s2 .t5 { position:absolute; top:1350px; left:470px; transform:translateX(-50%); font-size:104px; font-weight:700; color:#2D2D2D; white-space:nowrap; }
+  .s2 .t6 { position:absolute; top:1450px; left:540px; transform:translateX(-50%); font-size:92px; font-style:italic; color:#888780; white-space:nowrap; }
+  .s2 .divider { position:absolute; top:1560px; left:190px; right:190px; height:3px; background:#E8452A; opacity:0.35; }
+  .s2 .final { position:absolute; top:1620px; width:100%; text-align:center; font-size:82px; font-weight:700; color:#E8452A; }
+  .s2 .final2 { position:absolute; top:1720px; width:100%; text-align:center; font-size:82px; font-weight:700; color:#E8452A; }
+  .s2 .slide-num { position:absolute; bottom:60px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:32px; color:#888780; letter-spacing:5px; }
+
+  /* ── SLIDE 3 ── */
+  .s3 { background: linear-gradient(160deg, #2f4a33 0%, #1e3022 100%); }
+  .s3 .glow { position:absolute; width:1040px; height:1040px; border-radius:50%; background:#4a7c4e; opacity:0.12; top:440px; left:20px; }
+  .s3 .glow2 { position:absolute; width:440px; height:440px; border-radius:50%; background:#4a7c4e; opacity:0.07; top:50px; left:10px; }
+  .s3 .wordmark { position:absolute; top:155px; width:100%; text-align:center; font-size:52px; font-weight:700; color:white; opacity:0.88; letter-spacing:3px; }
+  .s3 .divider { position:absolute; top:218px; left:290px; right:290px; height:2px; background:white; opacity:0.2; }
+  .s3 .f1 { position:absolute; top:400px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:68px; color:#EAF3DE; opacity:0.95; }
+  .s3 .f2 { position:absolute; top:496px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:68px; color:#EAF3DE; opacity:0.95; }
+  .s3 .f3 { position:absolute; top:592px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:68px; color:#EAF3DE; opacity:0.95; }
+  .s3 .f4 { position:absolute; top:688px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:68px; color:#EAF3DE; opacity:0.95; }
+  .s3 .bar { position:absolute; top:790px; left:390px; right:390px; height:6px; border-radius:3px; background:#E8452A; opacity:0.8; }
+  .s3 .hero1 { position:absolute; top:935px; width:100%; text-align:center; font-size:115px; font-weight:700; color:white; }
+  .s3 .hero2 { position:absolute; top:1070px; width:100%; text-align:center; font-size:115px; font-weight:700; color:#FAECE7; }
+  .s3 .icons { position:absolute; top:1275px; width:100%; display:flex; justify-content:space-around; padding:0 80px; }
+  .s3 .icons span { font-size:84px; }
+  .s3 .nest { position:absolute; top:1530px; width:100%; text-align:center; font-size:112px; }
+  .s3 .slide-num { position:absolute; bottom:60px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:32px; color:white; opacity:0.35; letter-spacing:5px; }
+
+  /* ── SLIDE 4 ── */
+  .s4 { background: linear-gradient(180deg, #F5EDE4 0%, #EDE0D4 100%); }
+  .s4 .top-wash { position:absolute; top:0; left:0; right:0; height:840px; background:#C9A882; opacity:0.28; }
+  .s4 .glow1 { position:absolute; width:600px; height:600px; border-radius:50%; background:#E8A87C; opacity:0.16; top:-80px; left:-80px; }
+  .s4 .glow2 { position:absolute; width:480px; height:480px; border-radius:50%; background:#D4956A; opacity:0.12; top:100px; right:-60px; }
+  .s4 .fade { position:absolute; top:690px; left:0; right:0; height:200px; background:linear-gradient(to bottom, transparent, #F0E4D7); }
+  .s4 .wordmark { position:absolute; top:115px; width:100%; text-align:center; font-size:48px; font-weight:700; color:#2f4a33; letter-spacing:2px; }
+  .s4 .avatar { position:absolute; top:225px; left:50%; transform:translateX(-50%); width:370px; height:370px; border-radius:50%; background:rgba(232,69,42,0.12); border:3px solid rgba(232,69,42,0.22); display:flex; align-items:center; justify-content:center; font-size:135px; }
+  .s4 .t1 { position:absolute; top:870px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#2D2D2D; }
+  .s4 .t2 { position:absolute; top:972px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#2D2D2D; }
+  .s4 .t3 { position:absolute; top:1082px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#E8452A; }
+  .s4 .t4 { position:absolute; top:1184px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#E8452A; }
+  .s4 .t5 { position:absolute; top:1290px; width:100%; text-align:center; font-size:88px; font-weight:700; color:#E8452A; }
+  .s4 .paren-box { position:absolute; top:1400px; left:175px; right:175px; background:#FAECE7; border-radius:24px; padding:30px 40px; opacity:0.88; }
+  .s4 .paren-text { text-align:center; font-size:72px; font-style:italic; color:#993C1D; }
+  .s4 .paren-sub { text-align:center; font-family:Arial,sans-serif; font-size:46px; color:#993C1D; opacity:0.8; margin-top:10px; }
+  .s4 .poll-box { position:absolute; top:1650px; left:215px; right:215px; background:rgba(45,45,45,0.07); border-radius:34px; padding:22px 40px; }
+  .s4 .poll-q { text-align:center; font-family:Arial,sans-serif; font-size:42px; color:#555; }
+  .s4 .poll-icons { text-align:center; font-size:52px; margin-top:10px; }
+  .s4 .slide-num { position:absolute; bottom:60px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:32px; color:#888780; letter-spacing:5px; }
+
+  /* ── SLIDE 5 ── */
+  .s5 { background: linear-gradient(160deg, #F5F3F0 0%, #FAECE7 60%, #F5E6E0 100%); }
+  .s5 .c1 { position:absolute; width:400px; height:400px; border-radius:50%; background:#E8452A; opacity:0.06; top:-80px; left:-80px; }
+  .s5 .c2 { position:absolute; width:600px; height:600px; border-radius:50%; background:#E8452A; opacity:0.08; bottom:-100px; right:-120px; }
+  .s5 .c3 { position:absolute; width:300px; height:300px; border-radius:50%; background:#E8452A; opacity:0.04; top:60px; right:-40px; }
+  .s5 .wordmark { position:absolute; top:150px; width:100%; text-align:center; font-size:50px; font-weight:700; color:#E8452A; letter-spacing:3px; }
+  .s5 .divider { position:absolute; top:210px; left:290px; right:290px; height:2px; background:#E8452A; opacity:0.28; }
+  .s5 .nest { position:absolute; top:310px; width:100%; text-align:center; font-size:162px; }
+  .s5 .intro { position:absolute; top:630px; width:100%; text-align:center; font-size:74px; color:#888780; }
+  .s5 .cta-box { position:absolute; top:730px; left:135px; right:135px; background:#E8452A; border-radius:32px; padding:40px; }
+  .s5 .cta1 { text-align:center; font-size:90px; font-weight:700; color:white; }
+  .s5 .cta2 { text-align:center; font-size:104px; font-weight:700; color:#FAECE7; margin-top:8px; }
+  .s5 .arrow { position:absolute; top:1070px; width:100%; text-align:center; font-size:74px; }
+  .s5 .t1 { position:absolute; top:1170px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:58px; color:#2D2D2D; }
+  .s5 .t2 { position:absolute; top:1250px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:58px; color:#2D2D2D; }
+  .s5 .divider2 { position:absolute; top:1330px; left:360px; right:360px; height:2px; background:#E8452A; opacity:0.38; }
+  .s5 .free-badge { position:absolute; top:1370px; left:318px; right:318px; background:#EAF3DE; border:2.5px solid #3B6D11; border-radius:48px; padding:16px 0; text-align:center; font-family:Arial,sans-serif; font-size:46px; font-weight:700; color:#3B6D11; }
+  .s5 .url { position:absolute; top:1530px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:54px; font-weight:500; color:#E8452A; }
+  .s5 .sub-box { position:absolute; top:1650px; left:155px; right:155px; background:white; border-radius:22px; opacity:0.75; padding:26px 30px; }
+  .s5 .sub-t1 { text-align:center; font-family:Arial,sans-serif; font-size:40px; color:#555; }
+  .s5 .sub-t2 { text-align:center; font-family:Arial,sans-serif; font-size:40px; font-weight:700; color:#E8452A; margin-top:6px; }
+  .s5 .slide-num { position:absolute; bottom:60px; width:100%; text-align:center; font-family:Arial,sans-serif; font-size:32px; color:#888780; letter-spacing:5px; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<div class="page s1" data-document-role="page" data-label="Slide 1 — The Hook">
+  <div class="accent1"></div>
+  <div class="accent2"></div>
+  <div class="wordmark">KinlyNest™</div>
+  <div class="divider"></div>
+  <div class="line1">Your home</div>
+  <div class="line2">runs on</div>
+  <div class="line3">sticky notes,</div>
+  <div class="line4">4 apps,</div>
+  <div class="line5">and a group chat.</div>
+  <div class="divider2"></div>
+  <div class="sub">(We fixed that.)</div>
+  <div class="nest">🪺</div>
+  <div class="slide-num">1 / 5</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="page s2" data-document-role="page" data-label="Slide 2 — The Problem">
+  <div class="bubble b1"></div>
+  <div class="bubble b2"></div>
+  <div class="bubble b3"></div>
+  <div class="bubble b4"></div>
+  <div class="bubble b5"></div>
+  <div class="e1">📅</div>
+  <div class="e2">✅</div>
+  <div class="e3">🛒</div>
+  <div class="e4">🐾</div>
+  <div class="e5">🍽️</div>
+  <div class="wordmark">KinlyNest™</div>
+  <div class="t1">Calendar</div>
+  <div class="t2">here.</div>
+  <div class="t3">Groceries</div>
+  <div class="t4">there.</div>
+  <div class="t5">Chores…</div>
+  <div class="t6">somewhere?</div>
+  <div class="divider"></div>
+  <div class="final">Your household</div>
+  <div class="final2">deserves one nest.</div>
+  <div class="slide-num">2 / 5</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="page s3" data-document-role="page" data-label="Slide 3 — The Solution">
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="wordmark">KinlyNest™</div>
+  <div class="divider"></div>
+  <div class="f1">Family calendar.</div>
+  <div class="f2">Meal plans. Chores.</div>
+  <div class="f3">Pet care. Journal.</div>
+  <div class="f4">Smart import.</div>
+  <div class="bar"></div>
+  <div class="hero1">One app.</div>
+  <div class="hero2">One nest.</div>
+  <div class="icons">
+    <span>📅</span><span>🍽️</span><span>🧹</span><span>🐾</span><span>📖</span>
+  </div>
+  <div class="nest">🪺</div>
+  <div class="slide-num">3 / 5</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="page s4" data-document-role="page" data-label="Slide 4 — Founder Moment">
+  <div class="top-wash"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+  <div class="fade"></div>
+  <div class="wordmark">KinlyNest™</div>
+  <div class="avatar">👩‍💻</div>
+  <div class="t1">Built by someone</div>
+  <div class="t2">who was tired of</div>
+  <div class="t3">missing vet visits</div>
+  <div class="t4">and buying milk</div>
+  <div class="t5">we already had.</div>
+  <div class="paren-box">
+    <div class="paren-text">(It's me. Hi. 👋)</div>
+    <div class="paren-sub">— Terri, founder</div>
+  </div>
+  <div class="poll-box">
+    <div class="poll-q">Does your home need this?</div>
+    <div class="poll-icons">👍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👎</div>
+  </div>
+  <div class="slide-num">4 / 5</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="page s5" data-document-role="page" data-label="Slide 5 — The Ask">
+  <div class="c1"></div>
+  <div class="c2"></div>
+  <div class="c3"></div>
+  <div class="wordmark">KinlyNest™</div>
+  <div class="divider"></div>
+  <div class="nest">🪺</div>
+  <div class="intro">Want early access?</div>
+  <div class="cta-box">
+    <div class="cta1">DM me</div>
+    <div class="cta2">"NEST"</div>
+  </div>
+  <div class="arrow">👇</div>
+  <div class="t1">and I'll send you</div>
+  <div class="t2">the beta link.</div>
+  <div class="divider2"></div>
+  <div class="free-badge">✨ Free beta access</div>
+  <div class="url">kinlynest.com</div>
+  <div class="sub-box">
+    <div class="sub-t1">Active testers receive a</div>
+    <div class="sub-t2">FREE 1-year subscription 🎁</div>
+  </div>
+  <div class="slide-num">5 / 5</div>
+</div>
+
+</body>
+</html>
